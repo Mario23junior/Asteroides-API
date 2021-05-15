@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.asteroides.Controller.Service.ServiceAsteroide;
 import com.project.asteroides.Model.Asteroide;
-import com.project.asteroides.Service.DataService;
 
 @RequestMapping("/api/v1/asteroides")
 @RestController
 public class ControllerAsteroides {
     
-	private DataService dataService;
+	private ServiceAsteroide dataService;
 	
-	public ControllerAsteroides(DataService dataService) {
+	public ControllerAsteroides(ServiceAsteroide dataService) {
  		this.dataService = dataService;
  	}
 	
