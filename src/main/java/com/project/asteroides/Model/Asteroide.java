@@ -12,13 +12,13 @@ public class Asteroide {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String UrlImage;
+	private String urlImage;
 	
 	private String nome;
 	
 	private String massa;
 		
-	private Integer periodoOrbital;
+	private Double periodoOrbital;
 	
 	private String orbita;
 
@@ -31,11 +31,11 @@ public class Asteroide {
 	}
 
 	public String getUrlImage() {
-		return UrlImage;
+		return urlImage;
 	}
 
 	public void setUrlImage(String urlImage) {
-		UrlImage = urlImage;
+		this.urlImage = urlImage;
 	}
 
 	public String getNome() {
@@ -54,11 +54,11 @@ public class Asteroide {
 		this.massa = massa;
 	}
 
-	public Integer getPeriodoOrbital() {
+	public Double getPeriodoOrbital() {
 		return periodoOrbital;
 	}
 
-	public void setPeriodoOrbital(Integer periodoOrbital) {
+	public void setPeriodoOrbital(Double periodoOrbital) {
 		this.periodoOrbital = periodoOrbital;
 	}
 
@@ -68,5 +68,5 @@ public class Asteroide {
 
 	public void setOrbita(String orbita) {
 		this.orbita = orbita;
-	} 
+	}
 }
