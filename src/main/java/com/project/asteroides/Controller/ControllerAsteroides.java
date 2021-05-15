@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,4 +47,15 @@ public class ControllerAsteroides {
 		        	   return AnonimeDelete;
 		           }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação para ser exibida"));
  	}
+	
+	@PutMapping("/{id}")
+	public void update(@PathVariable Long id, @RequestBody Asteroide asteroide) {
+		  repositoryAsteroides
+		          .findById(id)
+		          .map(atualizarData -> {
+		        	  asteroide.setId(atualizarData.getId());
+		        	  repositoryAsteroides.save(asteroide);
+		        	  return atualizarData;
+		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualiazada"));
+	}
 }
