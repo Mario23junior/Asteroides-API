@@ -1,4 +1,4 @@
-package com.project.asteroides.Service;
+package com.project.asteroides.Controller.Service;
 
 import java.util.Optional;
 
@@ -12,13 +12,13 @@ import com.project.asteroides.Model.Asteroide;
 import com.project.asteroides.Repository.RepositoryAsteroides;
 
 @Service
-public class DataService {
-    
+public class ServiceAsteroide {
+   
 	private RepositoryAsteroides repositoryAsteroides;
-	
-	public DataService(RepositoryAsteroides repositoryAsteroides) {
+ 	
+	public ServiceAsteroide(RepositoryAsteroides repositoryAsteroides) {
 		this.repositoryAsteroides = repositoryAsteroides;
- 	}
+  	}
 	
 	public Asteroide save(@RequestBody Asteroide asteroide) {
 		Asteroide asteroidResult = repositoryAsteroides.save(asteroide);
@@ -48,5 +48,4 @@ public class DataService {
 		        	  return atualizarData;
 		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualiazada"));
 	}
-	
 }
