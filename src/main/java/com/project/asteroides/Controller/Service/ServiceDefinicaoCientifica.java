@@ -1,6 +1,9 @@
 package com.project.asteroides.Controller.Service;
  
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.project.asteroides.Model.DefinicaoCientifica;
@@ -17,5 +20,10 @@ public class ServiceDefinicaoCientifica {
 	
 	public DefinicaoCientifica SaveDefinicaoCientifica(@RequestBody DefinicaoCientifica definicaoCientifica) {
 		 return repositoryDefinicaoCientifica.save(definicaoCientifica);
+	}
+	
+	public Optional<DefinicaoCientifica> ListDefinicaoCientific(@PathVariable Long id) {
+		 Optional<DefinicaoCientifica> list = repositoryDefinicaoCientifica.findById(id);
+		 return list;
 	}
 }
