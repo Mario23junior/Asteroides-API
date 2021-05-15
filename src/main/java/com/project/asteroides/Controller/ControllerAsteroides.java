@@ -2,7 +2,6 @@ package com.project.asteroides.Controller;
 
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,51 +10,37 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.project.asteroides.Model.Asteroide;
-import com.project.asteroides.Repository.RepositoryAsteroides;
+import com.project.asteroides.Service.DataService;
 
 @RequestMapping("/api/v1/asteroides")
 @RestController
 public class ControllerAsteroides {
     
-	private RepositoryAsteroides repositoryAsteroides;
+	private DataService dataService;
 	
-	public ControllerAsteroides(RepositoryAsteroides repositoryAsteroides ) {
-		this.repositoryAsteroides = repositoryAsteroides;
+	public ControllerAsteroides(DataService dataService) {
+ 		this.dataService = dataService;
  	}
 	
 	@PostMapping("/")
 	public Asteroide save(@RequestBody Asteroide asteroide) {
-		Asteroide asteroidResult = repositoryAsteroides.save(asteroide);
-		return asteroidResult;
+		 return dataService.save(asteroide);
 	}
 	
 	@GetMapping("/{id}")
 	public Optional<Asteroide> listAll(@PathVariable Long id) {
-	    Optional<Asteroide> list = repositoryAsteroides.findById(id);
-	    return list;
+ 	    return dataService.listAll(id);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		 repositoryAsteroides 
-		           .findById(id)
-		           .map(AnonimeDelete -> {
-		        	   repositoryAsteroides.delete(AnonimeDelete);
-		        	   return AnonimeDelete;
-		           }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação para ser exibida"));
+		dataService.delete(id);
  	}
 	
 	@PutMapping("/{id}")
 	public void update(@PathVariable Long id, @RequestBody Asteroide asteroide) {
-		  repositoryAsteroides
-		          .findById(id)
-		          .map(atualizarData -> {
-		        	  asteroide.setId(atualizarData.getId());
-		        	  repositoryAsteroides.save(asteroide);
-		        	  return atualizarData;
-		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualiazada"));
+		dataService.update(id, asteroide);
 	}
 }
