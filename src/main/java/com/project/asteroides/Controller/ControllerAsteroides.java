@@ -2,8 +2,6 @@ package com.project.asteroides.Controller;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,13 +25,13 @@ public class ControllerAsteroides {
  	}
 	
 	@PostMapping("/")
-	public Asteroide save(@RequestBody @Valid Asteroide asteroide) {
+	public Asteroide save(@RequestBody Asteroide asteroide) {
 		 return dataService.save(asteroide);
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Asteroide> listAll(@PathVariable Long id) {
- 	    return dataService.listAll(id);
+	public Optional<Asteroide> listById(@PathVariable Long id) {
+ 	    return dataService.listId(id);
 	}
 	
 	@DeleteMapping("/{id}")
