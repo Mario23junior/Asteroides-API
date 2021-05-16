@@ -1,5 +1,6 @@
 package com.project.asteroides.Controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.asteroides.Controller.Service.ServiceDetalhesData;
@@ -34,6 +36,11 @@ public class ControllerDetalhesDatas {
 	@GetMapping("/{id}")
 	public Optional<DetalhesDatas> listDetalhesData(@PathVariable Long id) {
 		return service.listDetalhesD(id);
+	}
+	
+	@GetMapping("/classe")
+	public List<DetalhesDatas> listDetalhesClasse(@RequestParam(name = "classe") String classe) {
+		return service.listByClass(classe);
 	}
 	
 	@DeleteMapping("/{id}")
