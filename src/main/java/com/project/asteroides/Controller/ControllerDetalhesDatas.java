@@ -2,6 +2,8 @@ package com.project.asteroides.Controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +27,7 @@ public class ControllerDetalhesDatas {
  	}
 	
 	@PostMapping("/")
-	public DetalhesDatas saveDetalhesData(@RequestBody DetalhesDatas detalhesDatas) {
+	public DetalhesDatas saveDetalhesData(@RequestBody @Valid DetalhesDatas detalhesDatas) {
 		return service.saveDetalhesD(detalhesDatas);
 	}
 	
@@ -40,7 +42,7 @@ public class ControllerDetalhesDatas {
 	}
 	
 	@PutMapping("/{id}")
-	public void updateDetalhesD(@PathVariable Long id, @RequestBody DetalhesDatas detalhesDatas) {
+	public void updateDetalhesD(@PathVariable Long id, @RequestBody @Valid DetalhesDatas detalhesDatas) {
 		 service.updateDetalhes(id, detalhesDatas);
 	}
 }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Asteroide {
@@ -12,14 +13,18 @@ public class Asteroide {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotEmpty( message = "{campo.asteroide.urlImage}")
 	private String urlImage;
 	
+	@NotEmpty(message = "{campo.asteroide.nome}")
 	private String nome;
 	
+	@NotEmpty(message = "{campo.asteroide.massa}")
 	private String massa;
 		
 	private Double periodoOrbital;
 	
+	@NotEmpty(message = "{campo.asteroide.orbita}")
 	private String orbita;
 
 	public Long getId() {
