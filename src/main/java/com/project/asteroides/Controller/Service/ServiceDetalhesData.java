@@ -38,7 +38,6 @@ public class ServiceDetalhesData {
 		 
 	 }
 	 
-	 
 	 public void updateDetalhes(@PathVariable Long id, @RequestBody DetalhesDatas detalhesDatas) {
 		    repositoryDetalhesDatas
 		                   .findById(id)
