@@ -2,6 +2,7 @@ package com.project.asteroides.Controller;
 
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,11 @@ public class ControllerDetalhesDatas {
 	public Optional<DetalhesDatas> listDetalhesData(@PathVariable Long id) {
 		return service.listDetalhesD(id);
 	}
-
+	
+	@DeleteMapping("/{id}")
+	public void deleteDetalhesData(@PathVariable Long id) {
+		service.deleteDetalhesData(id);
+	}
 }
 
 

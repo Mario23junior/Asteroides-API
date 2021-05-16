@@ -2,9 +2,11 @@ package com.project.asteroides.Controller.Service;
 
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.project.asteroides.Model.DetalhesDatas;
 import com.project.asteroides.Repository.RepositoryDetalhesDatas;
@@ -26,5 +28,13 @@ public class ServiceDetalhesData {
 		 return repositoryDetalhesDatas.findById(id);
 	 }
 	 
-	
+	 public void deleteDetalhesData(@PathVariable Long id) {
+		 repositoryDetalhesDatas
+		              .findById(id)
+		              .map(deleteData -> {
+		            	  repositoryDetalhesDatas.delete(deleteData);
+ 		            	  return deleteData;
+		              }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"nenhuma informacao foi encontrada"));
+		 
+	 }
 }
