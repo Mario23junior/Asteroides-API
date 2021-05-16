@@ -1,6 +1,9 @@
 package com.project.asteroides.Controller.Service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.project.asteroides.Model.DetalhesDatas;
@@ -18,4 +21,10 @@ public class ServiceDetalhesData {
 	 public DetalhesDatas saveDetalhesD(@RequestBody DetalhesDatas detalhesDatas) {
 		 return repositoryDetalhesDatas.save(detalhesDatas);
 	 }
+	 
+	 public Optional<DetalhesDatas> listDetalhesD(@PathVariable Long id) {
+		 return repositoryDetalhesDatas.findById(id);
+	 }
+	 
+	
 }

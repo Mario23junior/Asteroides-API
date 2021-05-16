@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class DetalhesDatas {
   
@@ -17,6 +19,7 @@ public class DetalhesDatas {
 	
 	private String descobridor;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeDescorbeta;
 	
 	private String classe;
