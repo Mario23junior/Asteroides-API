@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -17,13 +18,16 @@ public class DetalhesDatas {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotEmpty(message = "{campo.DetalhesData.descobridor}")
 	private String descobridor;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeDescorbeta;
 	
+	@NotEmpty(message = "{campo.DetalhesData.classe}")
 	private String classe;
 	
+	@NotEmpty(message = "{campo.DetalhesData.descricao}")
 	@Column(length = 400)
 	private String descricao;
 
