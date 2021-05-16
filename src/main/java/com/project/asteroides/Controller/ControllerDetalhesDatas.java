@@ -1,5 +1,9 @@
 package com.project.asteroides.Controller;
 
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,4 +26,15 @@ public class ControllerDetalhesDatas {
 	public DetalhesDatas saveDetalhesData(@RequestBody DetalhesDatas detalhesDatas) {
 		return service.saveDetalhesD(detalhesDatas);
 	}
+	
+	@GetMapping("/{id}")
+	public Optional<DetalhesDatas> listDetalhesData(@PathVariable Long id) {
+		return service.listDetalhesD(id);
+	}
+
 }
+
+
+
+
+
