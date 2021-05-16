@@ -25,8 +25,11 @@ public class ServiceAsteroide {
 		return asteroidResult;
 	}
 	
-	public Optional<Asteroide> listAll(@PathVariable Long id) {
-	    Optional<Asteroide> list = repositoryAsteroides.findById(id);
+	
+	public Optional<Asteroide> listId(@PathVariable Long id) {
+	    Optional<Asteroide> list = Optional.ofNullable(repositoryAsteroides
+	    		                        .findById(id)
+	    		                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhum asteroide encontrado")));
 	    return list;
 	}
 	
