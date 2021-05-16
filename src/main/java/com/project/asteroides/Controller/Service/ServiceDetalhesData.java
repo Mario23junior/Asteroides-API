@@ -37,4 +37,15 @@ public class ServiceDetalhesData {
 		              }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"nenhuma informacao foi encontrada"));
 		 
 	 }
+	 
+	 
+	 public void updateDetalhes(@PathVariable Long id, @RequestBody DetalhesDatas detalhesDatas) {
+		    repositoryDetalhesDatas
+		                   .findById(id)
+		                   .map(update -> {
+		                	   detalhesDatas.setId(update.getId());
+		                	   repositoryDetalhesDatas.save(detalhesDatas);
+		                	   return update;
+		                   }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualizada"));
+	 }	 
 }
