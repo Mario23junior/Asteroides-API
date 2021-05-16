@@ -26,4 +26,13 @@ public class ServiceDefinicaoCientifica {
 		 Optional<DefinicaoCientifica> list = repositoryDefinicaoCientifica.findById(id);
 		 return list;
 	}
+	
+	public void deleteDefinicaoCi(@PathVariable Long id)  {
+		repositoryDefinicaoCientifica
+		                        .findById(id)
+		                        .map(deleteData -> {
+		                        	repositoryDefinicaoCientifica.delete(deleteData);
+ 		                        	return deleteData;
+		                        });
+	}	
 }
