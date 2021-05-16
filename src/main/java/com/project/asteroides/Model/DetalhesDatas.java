@@ -2,6 +2,7 @@ package com.project.asteroides.Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class DetalhesDatas {
 	
 	private String classe;
 	
+	@Column(length = 400)
 	private String descricao;
 
 	public Long getId() {
