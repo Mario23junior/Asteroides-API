@@ -40,13 +40,15 @@ public class Services implements ServiceDTOImplements {
  		    	    .map(asteroide, AsteroideDTO.class);
  		      return asteroideDTO;
  	}
+ 	
+ 	public List<AsteroideDTO> listAllData() {
+ 		 List<AsteroideDTO> list = listByDataAsteroide();
+ 				 return list
+ 						  .stream()
+ 						  .collect(Collectors.toList());
+ 	}
 
 }
-
-
-
-
-
 
 
 
