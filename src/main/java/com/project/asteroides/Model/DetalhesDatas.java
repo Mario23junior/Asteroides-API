@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -30,6 +31,17 @@ public class DetalhesDatas {
 	@NotEmpty(message = "{campo.DetalhesData.descricao}")
 	@Column(length = 400)
 	private String descricao;
+	
+	@ManyToOne
+	private Asteroide asteroide;
+
+	public Asteroide getAsteroide() {
+		return asteroide;
+	}
+
+	public void setAsteroide(Asteroide asteroide) {
+		this.asteroide = asteroide;
+	}
 
 	public Long getId() {
 		return id;

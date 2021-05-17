@@ -1,9 +1,13 @@
 package com.project.asteroides.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -26,7 +30,13 @@ public class Asteroide {
 	
 	@NotEmpty(message = "{campo.asteroide.orbita}")
 	private String orbita;
+	
+	@OneToMany(mappedBy = "asteroide", cascade = CascadeType.ALL)
+	private List<DefinicaoCientifica> definicaoCientificas;
 
+	@OneToMany(mappedBy = "asteroide", cascade = CascadeType.ALL)
+	private List<DetalhesDatas> detalhesDatas;
+	
 	public Long getId() {
 		return id;
 	}
@@ -74,4 +84,22 @@ public class Asteroide {
 	public void setOrbita(String orbita) {
 		this.orbita = orbita;
 	}
+
+	public List<DefinicaoCientifica> getDefinicaoCientificas() {
+		return definicaoCientificas;
+	}
+
+	public void setDefinicaoCientificas(List<DefinicaoCientifica> definicaoCientificas) {
+		this.definicaoCientificas = definicaoCientificas;
+	}
+
+	public List<DetalhesDatas> getDetalhesDatas() {
+		return detalhesDatas;
+	}
+
+	public void setDetalhesDatas(List<DetalhesDatas> detalhesDatas) {
+		this.detalhesDatas = detalhesDatas;
+	}
+	
+	
 }
