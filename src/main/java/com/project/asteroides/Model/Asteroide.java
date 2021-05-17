@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Asteroide {
     
@@ -84,7 +86,8 @@ public class Asteroide {
 	public void setOrbita(String orbita) {
 		this.orbita = orbita;
 	}
-
+    
+	@JsonIgnore
 	public List<DefinicaoCientifica> getDefinicaoCientificas() {
 		return definicaoCientificas;
 	}
@@ -93,6 +96,7 @@ public class Asteroide {
 		this.definicaoCientificas = definicaoCientificas;
 	}
 
+	@JsonIgnore
 	public List<DetalhesDatas> getDetalhesDatas() {
 		return detalhesDatas;
 	}

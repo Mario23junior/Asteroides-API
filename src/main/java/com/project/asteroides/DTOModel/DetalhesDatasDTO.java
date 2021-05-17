@@ -2,10 +2,14 @@ package com.project.asteroides.DTOModel;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DetalhesDatasDTO {
 
  	private Long id;
  	private String descobridor;
+ 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
  	private Date dataDeDescorbeta;
  	private String classe;	
  	private String descricao;

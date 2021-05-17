@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class DetalhesDatas {
@@ -35,6 +36,7 @@ public class DetalhesDatas {
 	@ManyToOne
 	private Asteroide asteroide;
 
+	@JsonIgnore
 	public Asteroide getAsteroide() {
 		return asteroide;
 	}
