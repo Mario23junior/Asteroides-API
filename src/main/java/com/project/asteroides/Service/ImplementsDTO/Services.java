@@ -42,7 +42,8 @@ public class Services implements ServiceDTOImplements {
 
 	public List<AsteroideDTO> listAllData() {
 		List<AsteroideDTO> list = listByDataAsteroide();
-		return list.stream()
+		return list
+				.stream()
 				.collect(Collectors.toList());
 	}
 

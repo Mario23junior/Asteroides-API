@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.project.asteroides.Exception.ObjectByReturnToEmpty;
+
 @RestControllerAdvice
 public class ControllerAdviceErro {
       
@@ -21,4 +23,13 @@ public class ControllerAdviceErro {
 				   .collect(Collectors.toList());
 		return new ApiErros(errors);
 	}
+	
+	
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ExceptionHandler(ObjectByReturnToEmpty.class)
+	public ApiErros hendleObjectByReturnToEmpty(ObjectByReturnToEmpty ex) {
+		return new ApiErros(ex.getMessage());
+	}
+	
+	
 }
