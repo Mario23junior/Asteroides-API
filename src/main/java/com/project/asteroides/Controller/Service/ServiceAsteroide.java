@@ -1,7 +1,10 @@
 package com.project.asteroides.Controller.Service;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,4 +54,11 @@ public class ServiceAsteroide {
 		        	  return atualizarData;
 		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualiazada"));
 	}
+	
+ 	public List<Asteroide> pagination(int pageNo, @PathVariable int pageSize){
+		PageRequest pagin = PageRequest.of(pageNo, pageSize);
+ 		Page<Asteroide>  pageResult = repositoryAsteroides.findAll(pagin);
+ 		
+ 		return pageResult.toList();
+	}	
 }

@@ -1,5 +1,6 @@
 package com.project.asteroides.Controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -44,5 +45,10 @@ public class ControllerAsteroides {
 	@PutMapping("/{id}")
 	public void update(@PathVariable Long id, @RequestBody @Valid Asteroide asteroide) {
 		dataService.update(id, asteroide);
+	}
+	
+	@GetMapping("/page/{pageNo}/{pageSize}")
+	public List<Asteroide> pagination(@PathVariable int pageNo, @PathVariable int pageSize){
+		return dataService.pagination(pageNo, pageSize);
 	}
 }
