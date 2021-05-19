@@ -24,7 +24,7 @@ public class DetalhesDatas {
 	private String descobridor;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	private Date dataDeDescorbeta;
+	private Date dataDedescoberta;
 	
 	@NotEmpty(message = "{campo.DetalhesData.classe}")
 	private String classe;
@@ -61,12 +61,13 @@ public class DetalhesDatas {
 		this.descobridor = descobridor;
 	}
 
-	public Date getDataDeDescorbeta() {
-		return dataDeDescorbeta;
+
+	public Date getDataDedescoberta() {
+		return dataDedescoberta;
 	}
 
-	public void setDataDeDescorbeta(Date dataDeDescorbeta) {
-		this.dataDeDescorbeta = dataDeDescorbeta;
+	public void setDataDedescoberta(Date dataDedescoberta) {
+		this.dataDedescoberta = dataDedescoberta;
 	}
 
 	public String getClasse() {
