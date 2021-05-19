@@ -12,16 +12,21 @@
 
 ## Etapas para testar ou reproduzir
 
-Primeiro execute o maven 
+## Primeiro execute o maven 
  
 ```
  mvn package
 ```
-Em seguida faça
+## Em seguida faça
 ```
 java -jar target/Asteroide-API-1.0-SNAPSHOT.jar
 
 ```
+## Para obter mais detalhes da documentação acesso o swagger
+```
+http://localhost:8080/swagger-ui.html
+```
+
 ## Uso
 
 ```
