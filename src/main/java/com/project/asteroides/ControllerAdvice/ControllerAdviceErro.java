@@ -25,8 +25,7 @@ public class ControllerAdviceErro {
 	}
 	
 	
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@ExceptionHandler(ObjectByReturnToEmpty.class)
+ 	@ExceptionHandler(ObjectByReturnToEmpty.class)
 	public ApiErros hendleObjectByReturnToEmpty(ObjectByReturnToEmpty ex) {
 		return new ApiErros(ex.getMessage());
 	}

@@ -19,7 +19,7 @@ public class Asteroide {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotEmpty( message = "{campo.asteroide.urlImage}")
+ 	@NotEmpty( message = "{campo.asteroide.urlImage}")
 	private String urlImage;
 	
 	@NotEmpty(message = "{campo.asteroide.nome}")
