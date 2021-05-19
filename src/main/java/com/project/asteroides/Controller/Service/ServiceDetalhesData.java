@@ -3,13 +3,12 @@ package com.project.asteroides.Controller.Service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.server.ResponseStatusException;
 
+import com.project.asteroides.Exception.ObjectByReturnToEmpty;
 import com.project.asteroides.Model.DetalhesDatas;
 import com.project.asteroides.Repository.RepositoryDetalhesDatas;
 
@@ -27,7 +26,9 @@ public class ServiceDetalhesData {
 	 }
 	 
 	 public Optional<DetalhesDatas> listDetalhesD(@PathVariable Long id) {
-		 return repositoryDetalhesDatas.findById(id);
+		 return Optional.ofNullable(repositoryDetalhesDatas
+				 .findById(id)
+				 .orElseThrow(() -> new ObjectByReturnToEmpty("Nenhuma informação de detalhes foi encontrado")));
 	 }
 	 
 	 
@@ -42,7 +43,7 @@ public class ServiceDetalhesData {
 		              .map(deleteData -> {
 		            	  repositoryDetalhesDatas.delete(deleteData);
  		            	  return deleteData;
-		              }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"nenhuma informacao foi encontrada"));
+		              }).orElseThrow(() -> new ObjectByReturnToEmpty("nenhuma informacao foi encontrada"));
 		 
 	 }
 	 
@@ -53,6 +54,6 @@ public class ServiceDetalhesData {
 		                	   detalhesDatas.setId(update.getId());
 		                	   repositoryDetalhesDatas.save(detalhesDatas);
 		                	   return update;
-		                   }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao para ser atualizada"));
+		                   }).orElseThrow(() -> new ObjectByReturnToEmpty("Nenhuma informacao para ser atualizada"));
 	 }	 
 }
