@@ -3,6 +3,7 @@ package com.project.asteroides.Model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +17,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Asteroide {
     
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
- 	@NotEmpty( message = "{campo.asteroide.urlImage}")
+  	@NotEmpty( message = "{campo.asteroide.urlImage}")
 	private String urlImage;
 	
 	@NotEmpty(message = "{campo.asteroide.nome}")
@@ -27,8 +29,8 @@ public class Asteroide {
 	
 	@NotEmpty(message = "{campo.asteroide.massa}")
 	private String massa;
-		
-	private Double periodoOrbital;
+	
+ 	private Double periodoOrbital;
 	
 	@NotEmpty(message = "{campo.asteroide.orbita}")
 	private String orbita;

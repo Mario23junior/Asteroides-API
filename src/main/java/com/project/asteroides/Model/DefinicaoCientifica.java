@@ -6,18 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity
+ @Entity
 public class DefinicaoCientifica {
    
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private Double diametroMedio;
+ 	private Double diametroMedio;
 	
 	private Double gravidade;
 	
-	private Double distanciaMediadoSol;
+ 	private Double distanciaMediadoSol;
 	
 	private Double raio;
 	
