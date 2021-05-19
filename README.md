@@ -52,11 +52,12 @@ http://localhost:8080/api/v1/list/asteroidesDetalhes/
          {
             "id":2,
             "descobridor":"Giuseppe Piazzi",
-            "dataDeDescoberta":"01/01/1801",
+            "dataDeDescorbeta":null,
             "classe":"G",
             "descricao":"Ceres é um planeta anão localizado no cinturão de asteroides entre Marte e Júpiter, sendo o maior dos asteroides. Desde sua descoberta em janeiro de 1801 por Giuseppe Piazzi, Ceres recebeu diversas classificações, sendo inicialmente considerado planeta e posteriormente asteroide."
          }
       ]
    }
 ]
+
 ```
