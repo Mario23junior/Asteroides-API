@@ -1,4 +1,4 @@
-<p align="center"><img src="logo/logo-asteroide-api.jpg"></p>
+<p align="center"><img src="logo-asteroide-api.gif" width = "834px"></p>
 
 <h1 align="center">Asteroide-API</h1>
 
